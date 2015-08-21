@@ -1,0 +1,73 @@
+<style>
+  .st-sort-ascent:before{
+	content: '\25B2';
+  }
+
+  .st-sort-descent:before{
+	content: '\25BC';
+  }
+</style>
+
+<div class="text-center">
+
+<h1>Usuarios</h1>
+	
+<div ng-controller="UsuariosController">	
+
+	<button type="button" class="btn btn-primary" ng-click="open()">
+		<i class="fa fa-plus"></i>Agregar usuario
+	</button>
+	
+	<table st-table="usuarios" class="table table-striped">
+		<thead>
+			<th st-sort="id">Id</th>
+			<th st-sort="name">Nombre</th>
+			<th>E-mail</th>
+			<th st-sort="date">Fecha</th>
+			<th> </th>
+		</thead>
+		<tbody>
+			<tr ng-repeat="usuario in usuarios">
+				<td>{{ usuario.id }}</td>
+				<td>{{ usuario.name }}</td>
+				<td>{{ usuario.email }}</td>
+				<td>{{ usuario.date | date:'MMM d, y h:mm:ss a' }}</td>
+				<td><a ng-click="deleteEmail($index)">Eliminar</a></td>
+			</tr>
+		</tbody>
+	</table>
+	
+	<script type="text/ng-template" id="myModalContent.html">
+		<div class="modal-header">
+			<h3 class="modal-title">Agregar usuario</h3>
+		</div>
+		<div class="modal-body">
+		<form class="form-horizontal" role="form">
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="txtId">Id:</label>
+				<div class="col-sm-10">
+					<input class="form-control" type="text" id="txtId" name="id" ng-model="usuario.id"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="txtNombre">Nombre:</label>
+				<div class="col-sm-10">
+					<input class="form-control" type="text" id="txtNombre" name="nombre" ng-model="usuario.name"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="txtEmail">E-mail:</label>
+				<div class="col-sm-10">
+					<input class="form-control" type="text" id="txtEmail" name="email"/>
+				</div>
+			</div>
+		</form>
+		</div>
+		<div class="modal-footer">
+			<button class="btn btn-primary" type="button" ng-click="ok()">Aceptar</button>
+			<button class="btn btn-warning" type="button" ng-click="cancel()">Cancelar</button>
+		</div>
+	</script>
+</div>
+	
+</div>
