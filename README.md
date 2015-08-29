@@ -7,6 +7,7 @@ Based in AngularJS Best Practices by Adnan Kukic (@kukicadnan). https://scotch.i
 The structure is:
 
 app/
+
 ----- shared/   // acts as reusable components or partials of our site
 ---------- sidebar/
 --------------- sidebarDirective.js
